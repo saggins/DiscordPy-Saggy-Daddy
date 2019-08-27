@@ -7,3 +7,10 @@ Pip moduels
 discord.py
 mcstatus
 asyncio
+
+Things to do:
+Alert if server is ded
+Alert if server is up 
+
+Auto do spigot updates
+
