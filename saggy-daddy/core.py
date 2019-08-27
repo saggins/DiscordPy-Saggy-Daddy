@@ -2,6 +2,7 @@ import discord
 import asyncio
 import os
 
+
 secretfile = open(os.getcwd()+"/saggy-daddy/secretstuff.txt", "r")
 token = secretfile.read()
 secretfile.close()
