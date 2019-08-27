@@ -14,3 +14,4 @@ Alert if server is up
 
 Auto do spigot updates
 
+Integrate with Sagg.in(project 2)
