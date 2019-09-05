@@ -1,4 +1,6 @@
 # DiscordPy-Saggy-Daddy
+For py 3.7
+
 A discord bot that I have.
 
 Put token at top line in /saggy-daddy/secretstuff.txt

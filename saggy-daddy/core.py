@@ -9,20 +9,17 @@ token = secretfile.read()
 secretfile.close()
 
 class SaggyDaddy(discord.Client):
-    @asyncio.coroutine
     #wipe server status channel
     # send the is it  up message
     # perodxly wipe and write new message if things have changed
-    def on_ready(self):
+    async def on_ready(self):
         
         channel = discord.utils.get(client.get_all_channels(), guild__name='Team Speak', name='server-status')
-        async def pruge(channel):
-            
-        pruge(channel)
         
         print('Logged on as {0}!'.format(self.user))
-    
-    s = sched.scheduler(time.time, time.sleep)
+        lastmessage= await channel.fetch_message(channel.last_message_id)
+        print( lastmessage)
+ #       s = sched.scheduler(time.time, time.sleep)
 
 client = SaggyDaddy()
 client.run(token)
