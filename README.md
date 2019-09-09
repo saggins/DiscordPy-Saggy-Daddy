@@ -11,6 +11,7 @@ mcstatus
 asyncio
 
 Things to do:
+Figure out how python modules work on python 3.7
 Alert if server is ded
 Alert if server is up 
 
