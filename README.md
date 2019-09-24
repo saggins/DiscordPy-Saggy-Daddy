@@ -9,6 +9,7 @@ Pip moduels
 discord.py
 mcstatus
 asyncio
+boto3
 
 Things to do:
 Figure out how python modules work on python 3.7

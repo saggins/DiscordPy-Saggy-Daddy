@@ -3,7 +3,6 @@ import asyncio
 import os
 from discord.ext import commands
 import sched, time
-import pymysql
 
 secretfile = open(os.getcwd()+"/saggy-daddy/secretstuff.txt", "r")
 token = secretfile.read()
@@ -45,7 +44,6 @@ class SaggyDaddy(discord.Client):
             Please use ^reg **YOUR NAME**
             """)
 
-    db = pymysql.connect
 
     async def on_message(self, message):
         #check if message is bot
