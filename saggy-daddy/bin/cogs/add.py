@@ -7,7 +7,7 @@ class add(commands.Cog):
 
     @commands.command()
     async def add(self, ctx,arg1, arg2):
-        sum = arg1 + arg2
+        sum = int(arg1) + int(arg2)
         await ctx.send(sum)
 
 def setup(bot):
