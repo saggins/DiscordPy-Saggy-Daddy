@@ -9,10 +9,10 @@ class reg(commands.Cog):
         self.table=table
     
     @commands.command()
-    async def reg(self, ctx, member):
+    async def reg(self, ctx):
         self.table.put_item(
             Item={
-                'userid':member.id,
+                'userid':ctx.author.id,
             }
         )
 def setup(bot):

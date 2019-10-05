@@ -53,36 +53,30 @@ class SaggyDaddy(commands.Bot):
 
     async def on_ready(self):
         #purge server status
-        channel = discord.utils.get(self.get_all_channels(), guild__name='Team Speak Dev', name='server-status')
+        channel = discord.utils.get(self.get_all_channels(), name='server-status')
         print('Logged on as {0}!'.format(self.user))
         await channel.purge() 
-    def putplayer(self, id):
-        table.put_item(
-            Item={
-                'userid':id,
-                'setp':0,
-            }
-        )
     
-    async def on_member_join(self, member):
+    
+    async def on_member_join(self, member ):
         # Start of Beggining user stu
-        if(member.bot): #check if incoming user is a bot
-            print("its a bot")
-            chan = discord.utils.get(self.get_all_channels(), guild__name='Team Speak Dev', name='reg')
-            await chan.send( member.mention + ' Please use "^reg **YOUR NAME**"')
+        #if(member.bot): #check if incoming user is a bot
+           # print("its a bot")
+          #  chan = discord.utils.get(self.get_all_channels(), guild__name='Team Speak Dev', name='reg')
+         #   await chan.send( member.mention + ' Please use "^reg **YOUR NAME**"')
             
-        else:
+        #else:
         # Change role of the user
-            chan = discord.utils.get(self.get_all_channels(), guild__name='Team Speak Dev', name='reg')
-            await chan.send( member.mention + ' Please use "^reg **YOUR NAME**"')
-            role = self.get_role("RIncomplete",member.guild)
-            await member.add_roles( role)
-            await member.create_dm()
-            print ("member joined")
+        chan = discord.utils.get(self.get_all_channels(), guild__name='Team Speak Dev', name='reg')
+        await chan.send( member.mention + ' Please use "^reg **YOUR NAME**"')
+        role =  await self.get_role("RIncomplete",member.guild)
+        await member.add_roles(role)
+        await member.create_dm()
+        print ("member joined")
         #Put in DB
-            table.put_item(Item={
-                'item_id':member.id,
-            })
+           # table.put_item(Item={
+           #     'item_id':ctx.author.id,
+           # })
 
 
     def run(self):

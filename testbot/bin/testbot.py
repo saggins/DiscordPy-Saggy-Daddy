@@ -2,14 +2,12 @@ import discord
 import asyncio
 import os
 
-import sched, time
-
 secretfile = open(os.getcwd()+"/testbot/testbot.txt", "r")
 token = secretfile.read()
 secretfile.close()
 
-class testbot(discord.Client):
-    async def on_ready(self):
-        print('Logged on as {0}!'.format(self.user))
-client = testbot()
+client = discord.Client()
+@client.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(client))
 client.run(token)
