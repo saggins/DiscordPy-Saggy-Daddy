@@ -67,16 +67,19 @@ class SaggyDaddy(commands.Bot):
             
         #else:
         # Change role of the user
-        chan = discord.utils.get(self.get_all_channels(), guild__name='Team Speak Dev', name='reg')
+        chan = discord.utils.get(self.get_all_channels(), name='reg')
         await chan.send( member.mention + ' Please use "^reg **YOUR NAME**"')
-        role =  await self.get_role("RIncomplete",member.guild)
+        role = await self.get_role("RIncomplete", member.guild)
         await member.add_roles(role)
         await member.create_dm()
         print ("member joined")
+        
         #Put in DB
-           # table.put_item(Item={
-           #     'item_id':ctx.author.id,
-           # })
+        ids= member.id
+        table.put_item(Item={
+            'userid':ids,
+            'reg':0
+        })
 
 
     def run(self):
