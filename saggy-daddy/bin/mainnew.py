@@ -3,7 +3,9 @@ from discord.ext import commands
 
 import asyncio
 import os
+
 import sched, time
+
 import sys
 import traceback
 
@@ -56,6 +58,7 @@ class SaggyDaddy(commands.Bot):
         print('Logged on as {0}!'.format(self.user))
         await channel.purge() 
     
+    #TODO: Make sure players don't do commands in the wrong channel
     
     async def on_member_join(self, member ):
         # Start of Beggining user stu
@@ -77,7 +80,13 @@ class SaggyDaddy(commands.Bot):
         table.put_item(Item={
             'userid':member.id,
             'reg':0,
+            'lynbrook':False,
+            'minecraft':False,
+            'mcname':'',
+
         })
+
+    #TODO: Make sure to add an auto update of records
 
 
     def run(self):
