@@ -19,7 +19,6 @@ dynamodb1 = boto3.resource("dynamodb")
 table= dynamodb1.Table('discordpy')
 
 INITIAL_EXTENSIONS=[
-    'cogs.randomstuff',
     'cogs.add',
     'cogs.reg',
 ]
@@ -73,10 +72,12 @@ class SaggyDaddy(commands.Bot):
         await member.add_roles(role)
         await member.create_dm()
         print ("member joined")
+        
         #Put in DB
-           # table.put_item(Item={
-           #     'item_id':ctx.author.id,
-           # })
+        table.put_item(Item={
+            'item_id':member.id,
+            'reg':0,
+        })
 
 
     def run(self):
