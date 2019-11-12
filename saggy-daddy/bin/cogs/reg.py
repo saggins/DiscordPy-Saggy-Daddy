@@ -14,7 +14,7 @@ class reg(commands.Cog):
         step = table.get_item(
             Key={
                 'userid':ctx.author.id,
-            }
+             }
         ) 
 
         try:
@@ -31,27 +31,35 @@ class reg(commands.Cog):
                 await ctx.send('Are you part of lynbrook? $reg **yes/no**')
         
         if(step1['reg'] == 1): #Is it step 1? Give Lynbrook pls
-            if(len(args)!=1 or args[0]!='yes' or args[0]!='no'):
+            if(len(args)!=1):
                 await ctx.send('Are you part of lynbrook? $reg **yes/no**')
             else:
+                debug=args[0]
                 await self.updatestuff(ctx.author.id, 2, 'lynbrook', args[0] )
                 await ctx.send('Do you do minecraft? Please do $reg **yes/no**')
 
         if(step1['reg'] == 2): #Is it step 2? Give minecraft pls
-            if(len(args)!=1 or args[0]!='yes' or args[0]!='no'):
+            if(len(args)!=1 ):
                 await ctx.send('Do you do minecraft? Please do $reg **yes/no**')
             else:
+                debug=args[0]
                 await self.updatestuff(ctx.author.id, 3, 'minecraft', args[0] )
                 await ctx.send('Please do $reg **Minecraft username**')                
 
         if(step1['reg'] == 3): #Is it step 3? Minecraft username give pls
-            if(len(args)!=3):
+            if(len(args)!=2):
                 await ctx.send('Please do $reg **Minecraft username**')
             else:
+                debug=args[0]
                 await self.updatestuff(ctx.author.id, 4, 'mcname', args[0] )
-                await ctx.send('Do you do minecraft? Please do $reg **yes/no**')
+                await ctx.send('Finished **')
+        if(step1['reg']==4):
+            await ctx.send("Finished ! ")
     
-    
+    @commands.command()
+    async def update(self, ctx, *args):
+        if(len(args)!=1):
+            await ctx.send(ctx.author.mention + ' Please do $update ****')
     
     async def updatestuff(self, id, newstep, key, value):
         table.update_item( #update reg
@@ -67,7 +75,7 @@ class reg(commands.Cog):
             Key={
                 'userid': id,
             },
-            UpdateExpression='SET #key = :vali1',
+            UpdateExpression=   'SET #key = :vali1',
             ExpressionAttributeNames={
                 '#key' : key
             },

@@ -23,7 +23,7 @@ table= dynamodb1.Table('discordpy')
 INITIAL_EXTENSIONS=[
     'cogs.add',
     'cogs.reg',
-]
+] 
 
 class SaggyDaddy(commands.Bot):
     def __init__(self):
@@ -82,7 +82,7 @@ class SaggyDaddy(commands.Bot):
             'reg':0,
             'lynbrook':False,
             'minecraft':False,
-            'mcname':'',
+            'mcname':' ',
 
         })
 
